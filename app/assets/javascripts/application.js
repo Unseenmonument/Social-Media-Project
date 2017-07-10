@@ -9,9 +9,44 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+// turbo links was removed because it messed with jquery
 //
 //= require jquery
 //= require bootstrap-sprockets
 //= require rails-ujs
-//= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function(){
+  $('.unfollow_btn').hover(function(){
+    $(this).removeClass('btn-primary');
+    $(this).addClass('btn-danger');
+    $(this).html("Unfollow");
+  }, function(){
+    $(this).html("Following");
+    $(this).removeClass('btn-danger');
+    $(this).addClass('btn-primary');
+  });
+})
+
+
+
+
+
+
+
+// $(document).ready(function(){
+//     $('#unfollow_btn').hover(function(){
+//         $(this).removeClass('btn_primary');
+//         $(this).addClass('btn_danger');
+//         $(this).html('Unfollow');
+//         $(this).attr("id", "follow_btn");
+// });
+    
+// $('unfollow_btn').hover(function(){
+//         $(this).html("Following");
+//         $(this).removeClass('btn_danger');
+//         $(this).addClass('btn_primary');
+//         $(this)attr("id", "unfollow_btn");
+// });
+// })
