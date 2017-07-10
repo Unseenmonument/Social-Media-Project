@@ -1,8 +1,8 @@
 class EpicenterController < ApplicationController
 
-	before_action :authenticate_user!
+	  before_action :authenticate_user!
 	
-	include TweetsHelper
+	  include TweetsHelper
   
   def feed
   	@following_tweets = []
@@ -41,16 +41,22 @@ class EpicenterController < ApplicationController
 
   def epi_tweet
     
-     @tweet = Tweet.new
+    @tweet = Tweet.new
 
      #our parameters are received as an array of hashes, so we have to dig down into the layers #tweets_path to get our data. 
     @tweet.message = "#{params[:tweet][:message]}"
     @tweet.user_id = "#{params[:tweet][:user_id].to_i}"
+      @tweet.save
     
-    @tweet = get_tagged(@tweet)
+    
+    #comes from the TweetsHelper
+    @new_tweet = get_tagged(@tweet)
     
     
-    @tweet.save
+    @tweet.update(message: @new_tweet.message)
+    
+    
+
     redirect_to root_path
 
 
@@ -61,4 +67,6 @@ class EpicenterController < ApplicationController
   def all_users
   	@users = User.all
   end	
+  
+  
 end

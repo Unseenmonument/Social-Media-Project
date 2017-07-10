@@ -32,7 +32,7 @@
 	   
 	        <p>@<%= @user.username %></p>
 	        <p><em> Posted <%= time_ago_in_words(tweet.created_at) %> ago...</em></p>
-		<p><%= tweet.message %></p>
+		<p><%= tweet.message.html_safe %></p>
 	  </div>  
 	<% end %>
 </div>

@@ -1,16 +1,7 @@
 class TweetTag < ApplicationRecord
 
-belongs_to :tweet
-belongs_to :tag
-
-
-
-
-
-
-
-
-
+    belongs_to :tweet
+    belongs_to :tag
 
 
 
